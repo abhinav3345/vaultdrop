@@ -1,0 +1,131 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  background: #10121a;
+  color: #f2f3f8;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+.shell {
+  width: min(100% - 2rem, 40rem);
+  margin-inline: auto;
+}
+
+.site-header {
+  border-bottom: 1px solid #2a2e3e;
+  background: #151824;
+}
+
+.brand {
+  padding-block: 1rem;
+  color: #c6bcff;
+  font-weight: 750;
+  letter-spacing: .02em;
+}
+
+main { padding-block: clamp(2rem, 7vw, 5rem); }
+
+.intro { margin-bottom: 1.75rem; }
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+.intro p, [role="status"] { color: #b0b6ca; }
+
+.intro p { margin: .75rem 0 0; }
+
+.drop-card {
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid #303549;
+  border-radius: 1.25rem;
+  background: #1a1e2c;
+}
+
+fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 1.25rem;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
+label {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+textarea, input, select, button {
+  display: block;
+  width: 100%;
+  padding: .75rem;
+  border: 1px solid #3a4056;
+  border-radius: .6rem;
+  font: inherit;
+}
+
+textarea, input, select {
+  background: #121520;
+  color: #d3d6e4;
+  opacity: 1;
+}
+
+textarea { resize: none; }
+
+textarea::placeholder { color: #a0a6bb; }
+
+.settings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.25rem;
+}
+
+button:disabled {
+  border-color: #56477b;
+  background: #3b315a;
+  color: #d4c8f9;
+  font-weight: 650;
+  cursor: not-allowed;
+}
+
+[role="status"] {
+  margin: .75rem 0 0;
+  font-size: .875rem;
+}
+
+@media (max-width: 28rem) {
+  .settings { grid-template-columns: 1fr; }
+}
+
+button {
+  background: #c6bcff;
+  border-color: #c6bcff;
+  color: #19142e;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+#copy-link { margin-top: .75rem; }
+
+:focus-visible {
+  outline: 2px solid #c6bcff;
+  outline-offset: 3px;
+}
+
+[hidden], [role="status"]:empty { display: none; }

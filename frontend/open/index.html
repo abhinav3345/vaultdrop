@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <title>Open a drop | VaultDrop</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/open/open.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell brand">VaultDrop</div>
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Open a secret drop</h1>
+      <p>Revealing this secret uses one view.</p>
+    </section>
+    <section class="drop-card" aria-label="Secret drop">
+      <button id="reveal" type="button" disabled>Reveal secret</button>
+      <p id="open-status" role="status"></p>
+      <div id="opened-drop" hidden>
+        <label for="revealed-secret">Secret</label>
+        <textarea id="revealed-secret" rows="6" readonly></textarea>
+      </div>
+      <noscript>Enable JavaScript to reveal this drop.</noscript>
+    </section>
+  </main>
+</body>
+</html>

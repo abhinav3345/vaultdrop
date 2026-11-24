@@ -1,9 +1,10 @@
 from src.db import get_connection
 
-def test_insert_and_read_link(db):
+def test_insert_and_read_drop(db):
     with get_connection() as conn:
         row = conn.execute(
-            "INSERT INTO links (url) VALUES (%s) RETURNING id, hits",
-            ("https://example.com",),
+            "INSERT INTO drops (token_hash, ciphertext, views_left, expires_at) "
+            "VALUES ('h', 'x', 1, now() + interval '1 hour') "
+            "RETURNING token_hash, views_left"
         ).fetchone()
-    assert row == (1, 0)
+    assert row == ("h", 1)

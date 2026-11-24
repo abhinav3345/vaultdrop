@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>VaultDrop</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/sender.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell brand">VaultDrop</div>
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Create a secret drop</h1>
+      <p>Share sensitive text with a link that expires after a set time or number of views.</p>
+    </section>
+    <form id="sender-form" class="drop-card" method="post" action="/drops" autocomplete="off">
+      <fieldset disabled>
+        <legend>Drop settings</legend>
+        <label for="secret">Secret</label>
+        <textarea id="secret" name="secret" rows="6" maxlength="10000" required spellcheck="false"
+                  placeholder="Enter the text you want to share"></textarea>
+        <div class="settings">
+          <div>
+            <label for="max-views">Maximum views</label>
+            <input id="max-views" name="max_views" type="number" min="1" max="100" value="1" required>
+          </div>
+          <div>
+            <label for="expiry">Expires after</label>
+            <select id="expiry" name="ttl_seconds">
+              <option value="300">5 minutes</option>
+              <option value="3600" selected>1 hour</option>
+              <option value="86400">1 day</option>
+              <option value="604800">7 days</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit">Create drop</button>
+      </fieldset>
+      <noscript>Enable JavaScript to create a drop.</noscript>
+    </form>
+    <p id="sender-status" role="status"></p>
+    <section id="drop-result" class="drop-card" hidden aria-label="Created drop">
+      <label for="share-link">Share link</label>
+      <input id="share-link" type="url" readonly>
+      <button id="copy-link" type="button">Copy link</button>
+      <p id="copy-status" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>
